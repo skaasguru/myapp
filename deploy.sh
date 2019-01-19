@@ -25,12 +25,12 @@ install_mysql(){
     echo "mysql-server mysql-server/root_password password $password" | sudo debconf-set-selections
     echo "mysql-server mysql-server/root_password_again password $password" | sudo debconf-set-selections
     apt-get install -y mysql-server
-    mysql -uroot -p$password < schema.sql
 }
 
 pull_and_deploy_application(){
     git clone -b monolith1 https://github.com/skaasguru/myapp.git
     cd myapp
+    mysql -uroot -p$password < schema.sql
     mvn package
     cp ./target/webapp-1.0.0.war /var/lib/tomcat8/webapps/myapp.war
 }
