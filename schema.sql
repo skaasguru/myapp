@@ -27,5 +27,3 @@ INSERT INTO `users` (`name`, `email`, `password`) VALUES ('admin', 'admin@exampl
 
 INSERT INTO `contacts` (`user_id`, `name`, `phone`) VALUES ('1', 'SuperAdmin', '1234567890');
 INSERT INTO `contacts` (`user_id`, `name`, `phone`) VALUES ('1', 'HyperAdmin', '0987654321');
-
-quit;

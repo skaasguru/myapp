@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-export CODE_URL="https://s3.ap-south-1.amazonaws.com/training-downloads/adobe/MyApp-Local.zip"
+
 
 create_swap(){
     fallocate -l 2G /swapfile
@@ -29,10 +29,8 @@ install_mysql(){
 }
 
 pull_and_deploy_application(){
-    mkdir -p /home/ubuntu/code
-    cd /home/ubuntu/code
-    wget -O webapp.zip $CODE_URL
-    unzip webapp.zip
+    git clone -b monolith1 https://github.com/skaasguru/myapp.git
+    cd myapp
     mvn package
     cp ./target/webapp-1.0.0.war /var/lib/tomcat8/webapps/myapp.war
 }
