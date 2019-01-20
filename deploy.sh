@@ -26,7 +26,7 @@ install_mysql(){
 }
 
 pull_and_deploy_application(){
-    git clone -b monolith2a https://github.com/skaasguru/myapp.git
+    git clone -b monolith2b https://github.com/skaasguru/myapp.git
     cd myapp
     mysql -uroot -p$password < schema.sql
     mvn package
