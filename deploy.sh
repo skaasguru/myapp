@@ -12,7 +12,7 @@ create_swap(){
 
 install_java_and_tomcat(){
     apt-get update
-    apt install python-software-properties -y
+    apt install software-properties-common -y
     apt-get install -y default-jdk tomcat8 maven unzip
     echo JAVA_HOME=\"$(readlink -f /usr/bin/java | sed "s:/bin/java::")\" >> /etc/environment
     source /etc/environment
